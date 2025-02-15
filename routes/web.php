@@ -51,11 +51,11 @@ Route::middleware('auth')->group(function () {
 
 });
 // Route::resource('/admins/profiles', AdminProfileController::class);
-Route::prefix('lecturer')
-    ->middleware(['auth', 'role:lecturer']) // Add middleware for role-based access
-    ->group(function () {
+// Route::prefix('lecturer')
+//     ->middleware(['auth', 'role:lecturer']) // Add middleware for role-based access
+//     ->group(function () {
 
-    });
+//     });
     Route::get('/lecturer/documents', [LecturerDocumentController::class, 'index'])->name('lecturer.documents.index');
     Route::get('/lecturer/documents/create', [LecturerDocumentController::class, 'create'])->name('lecturer.documents.create');
     Route::post('/lecturer/documents', [LecturerDocumentController::class, 'store'])->name('lecturer.documents.store');
@@ -93,7 +93,7 @@ Route::prefix('lecturer')
 //     Route::put('/{id}', [LecturerUserController::class, 'update'])->name('update');
 //     Route::delete('/{id}', [LecturerUserController::class, 'destroy'])->name('destroy');
 // });
-Route::resource('/lecture/users', LecturerUserController::class);
+// Route::resource('/lecture/users', LecturerUserController::class);
 require __DIR__.'/auth.php';
 
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])
